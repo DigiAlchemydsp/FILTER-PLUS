@@ -1,3 +1,5 @@
+![Filter+ type names scrolling](docs/img/filterplus-types.gif)
+
 # Filter+
 
 Per-track filter modes for the **Digitakt mk1 (OS 1.54)** and
@@ -15,8 +17,6 @@ FREQ/RES response curve and TYPE-box icon for the new modes; the icon is a
 smooth response curve with its pole order (1, 2 or 4).
 
 ![Filter+ type names scrolling](docs/img/filterplus-types.gif)
-
-*FILTER stays fixed while the 13 type names scroll through.*
 
 - Both machines: COMB/TRASH use HARM/DAMP on the second FLTR page's free
   encoders.
