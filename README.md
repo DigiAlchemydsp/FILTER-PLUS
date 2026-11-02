@@ -16,8 +16,6 @@ Stock TYPE values keep running the stock filter. The FLTR page redraws its
 FREQ/RES response curve and TYPE-box icon for the new modes; the icon is a
 smooth response curve with its pole order (1, 2 or 4).
 
-![Filter+ type names scrolling](docs/img/filterplus-types.gif)
-
 - Both machines: COMB/TRASH use HARM/DAMP on the second FLTR page's free
   encoders.
 - The low-CPU bank: LP1/HP1 are 1-pole, LP4-/HP4- are four cascaded 1-poles,
