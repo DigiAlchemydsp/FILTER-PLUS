@@ -1,0 +1,141 @@
+{
+ "id": "filterplus-dn",
+ "version": "1.0",
+ "ele3_version": "1.0",
+ "title": "Filter+ DN",
+ "category": "Sound",
+ "author": "Digital Alchemy DSP",
+ "license": "GPL-2.0-or-later",
+ "description": "Per-voice filter modes for the Digitone mk1/Keys (OS 1.44): BP, BP2, COMB and TRASH plus the low-CPU LP1/HP1/LP4-/HP4-/LP2/HP2/NOTCH/COMB-/TRASH- modes as TYPE 4..16 on top of stock OFF/LP2/HP/LP4, using each voice's own FREQ/RESO and filter envelope. Widens the TYPE range to 16 and the value-text list to 17 with names and TYPE-box icons, runs the shared Filter+ DSP at the per-voice filter call, and adds HARM/DAMP on page-2 free C/G for COMB/TRASH (params 182/183). The FLTR page draws the FREQ/RESO response curve and the 17x17 TYPE-box icon. Stock TYPE 0..3 still runs the stock multimode filter. Same modes as Filter+ for the Digitakt.",
+ "device": "digitone-mk1",
+ "os": "1.44",
+ "sources": [
+  "../shared/df_dsp.c",
+  "../shared/filter_dsp.s",
+  "filter_glue.s",
+  "filter_ui.c"
+ ],
+ "cflags": [
+  "-DPAGE2_C_AT=0x4136c69c",
+  "-DPAGE2_G_AT=0x4136c6ac"
+ ],
+ "defsym": {
+  "FILTER": "0x400984d6",
+  "FMT": "0x40014b6c",
+  "OFF_STR": "0x401d8d4b",
+  "LP2_STR": "0x401d8ca0",
+  "HP_STR": "0x401d8ca4",
+  "LP4_STR": "0x401d8ca7"
+ },
+ "sites": [
+  {
+   "addr": "0x4018db2c",
+   "stock": "00000300",
+   "op": "bytes",
+   "new": "00001000",
+   "kind": "data"
+  },
+  {
+   "addr": "0x4018db54",
+   "stock": "40014b6c",
+   "op": "ptr",
+   "target": "digifilter_dn_typefmt"
+  },
+  {
+   "addr": "0x4009e0d2",
+   "stock": "068080004110",
+   "op": "jsr",
+   "target": "digifilter_dn_dispatch"
+  },
+  {
+   "addr": "0x400885bc",
+   "stock": "7403",
+   "op": "bytes",
+   "new": "7410",
+   "kind": "code"
+  },
+  {
+   "addr": "0x400885c2",
+   "stock": "7003",
+   "op": "bytes",
+   "new": "7010",
+   "kind": "code"
+  },
+  {
+   "addr": "0x400885c4",
+   "stock": "41f9401a75e0",
+   "op": "bytes",
+   "new": "41f900000000",
+   "kind": "code",
+   "relocs": [
+    [
+     2,
+     "abs32",
+     "sym:digifilter_dn_types",
+     0
+    ]
+   ]
+  }
+ ],
+ "subscribe": [
+  {
+   "event": "ev_tick",
+   "fn": "digifilter_dn_tick",
+   "order": 50
+  },
+  {
+   "event": "ev_draw",
+   "fn": "digifilter_dn_draw",
+   "order": 40
+  },
+  {
+   "event": "ev_key",
+   "fn": "digifilter_dn_key",
+   "order": 60
+  },
+  {
+   "event": "ev_enc",
+   "fn": "digifilter_dn_enc",
+   "order": 60
+  }
+ ],
+ "contribute": [
+  {
+   "to": "core_params",
+   "order": 50,
+   "data": "00000000",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:digifilter_dn_harm",
+     0
+    ]
+   ]
+  },
+  {
+   "to": "core_params",
+   "order": 51,
+   "data": "00000000",
+   "relocs": [
+    [
+     0,
+     "abs32",
+     "sym:digifilter_dn_damp",
+     0
+    ]
+   ]
+  }
+ ],
+ "requires": [
+  "core"
+ ],
+ "resources": {
+  "names": [
+   "sound:filter TYPE values (Filter+ DN modes)",
+   "param:182",
+   "param:183"
+  ],
+  "core": "4.0"
+ }
+}
