@@ -75,6 +75,11 @@ python tests/df_bench.py          # needs digiemu's patched Unicorn
 
 See the device READMEs and `docs/` for the emulator and hardware checks.
 
+## Handoff
+
+See [HANDOFF.md](HANDOFF.md) for the current state, CPU table, build commands
+and next steps.
+
 ## Credits
 
 - **Digital Alchemy DSP** - the Filter+ modes, DSP and FLTR-page drawing.

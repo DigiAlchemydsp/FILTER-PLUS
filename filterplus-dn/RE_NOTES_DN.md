@@ -1,6 +1,6 @@
-# DigiFilter-DN RE notes (Digitone mk1, OS 1.44)
+# Filter+ DN reverse-engineering notes (Digitone mk1, OS 1.44)
 
-OB4/OB2 are not part of the current low-CPU experiment; the notes below are retained for reference.
+OB4/OB2 are not part of Filter+ 1.0; these notes are retained from the original DigiFilter/DN-port research.
 
 **Shipped target: OS 1.44 with core 4.0. The 1.43 addresses below are kept as
 provenance from the original port; they are not built or released.**

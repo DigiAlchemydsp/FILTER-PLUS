@@ -1,6 +1,6 @@
-# Reverse-engineering notes (per-track `digifilter`)
+# Filter+ DT reverse-engineering notes
 
-OB4/OB2 are not part of the current low-CPU experiment; the notes below are retained for reference.
+OB4/OB2 are not part of Filter+ 1.0; these notes are retained from the original DigiFilter/DN-port research.
 
 > **Version 1.2 targets Digitakt mk1 OS 1.54 only.** The sections below are the
 > original 1.53 RE notes, kept for history; §14 lists the moved 1.54 addresses.
